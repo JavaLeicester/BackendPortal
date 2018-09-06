@@ -1,7 +1,12 @@
 package uk.co.bookingAndCollection.models;
 
+import javax.persistence.*;
+
+@Entity
 public class PieceData {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	private String length;

@@ -7,6 +7,7 @@ public class PieceData {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "pieceData_id")
 	private Integer id;
 	
 	private String length;
@@ -16,6 +17,10 @@ public class PieceData {
 	private String height;
 	
 	private String weight;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn
+	private Booking booking;
 	
 	public String getWeight() {
 		return weight;

@@ -2,6 +2,7 @@ package uk.co.bookingAndCollection.models;
 
 import java.util.List;
 import javax.persistence.*;
+import uk.co.bookingAndCollection.models.PieceData;
 
 @Entity
 public class Booking {
@@ -32,6 +33,7 @@ public class Booking {
 	
 	private String bookingTime;
 	
+	@OneToMany(mappedBy="booking")
 	private List<PieceData> piecesDatas;
 	
 	public String getCustomerName() {
@@ -129,8 +131,5 @@ public class Booking {
 	public void setPiecesDatas(List<PieceData> piecesDatas) {
 		this.piecesDatas = piecesDatas;
 	}
-
-
-	
 	
 }

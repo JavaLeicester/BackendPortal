@@ -9,7 +9,7 @@ public class Booking {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
 	private String customerName;
 	
@@ -35,6 +35,13 @@ public class Booking {
 	
 	@OneToMany(mappedBy="booking")
 	private List<PieceData> piecesDatas;
+	
+	public Booking(String customerName, String houseNumber, String street, String city ) {
+		this.customerName = customerName;
+		this.houseNumber = houseNumber;
+		this.street = street;
+		this.city = city;
+	}
 	
 	public String getCustomerName() {
 		return customerName;

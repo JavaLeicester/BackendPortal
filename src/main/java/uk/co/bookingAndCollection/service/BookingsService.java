@@ -24,4 +24,8 @@ public class BookingsService {
 		return (List<Booking>)bookingsRepository.saveAll(bookings);
 	}
 	
+	public Booking addBooking(Booking booking) {
+		return bookingsRepository.save(booking);
+	}
+	
 }

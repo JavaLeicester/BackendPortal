@@ -7,6 +7,7 @@ import uk.co.bookingAndCollection.models.*;
 import uk.co.bookingAndCollection.repository.BookingsRepository;
 import uk.co.bookingAndCollection.service.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/bookings")
 public class Bookings {

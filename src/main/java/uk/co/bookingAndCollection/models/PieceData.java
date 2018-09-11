@@ -3,11 +3,11 @@ package uk.co.bookingAndCollection.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name="pieceData")
 public class PieceData {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "pieceData_id")
 	private Integer id;
 	
 	private String length;
@@ -19,9 +19,10 @@ public class PieceData {
 	private String weight;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn
+	@JoinColumn(name = "booking_id")
 	private Booking booking;
 	
+	// Weight
 	public String getWeight() {
 		return weight;
 	}
@@ -30,6 +31,7 @@ public class PieceData {
 		this.weight = weight;
 	}
 
+	// Length
 	public String getLength() {
 		return length;
 	}
@@ -38,6 +40,7 @@ public class PieceData {
 		this.length = length;
 	}
 
+	// Width
 	public String getWidth() {
 		return width;
 	}
@@ -46,12 +49,18 @@ public class PieceData {
 		this.width = width;
 	}
 
+	// Height
 	public String getHeight() {
 		return height;
 	}
 
 	public void setHeight(String height) {
 		this.height = height;
+	}
+	
+	public Booking getBooking() {
+		return booking;
+		
 	}
 	
 }

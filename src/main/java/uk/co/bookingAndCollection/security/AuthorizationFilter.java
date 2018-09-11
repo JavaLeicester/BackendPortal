@@ -26,6 +26,10 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
 	
 	      System.out.println("doFilterInternal");			
 		  debugLogger.debug("..\n Handling a new request .. \n");
+		  
+		  // Add this line means that data is inserted
+		  // However the data is null 
+		  chain.doFilter(request, response);
 		
 	}
 	

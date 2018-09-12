@@ -2,9 +2,10 @@ package uk.co.bookingAndCollection.models;
 
 import java.util.List;
 import javax.persistence.*;
-import uk.co.bookingAndCollection.models.PieceData;
+import uk.co.bookingAndCollection.models.PieceData;;
 
 @Entity
+@Table(name="booking")
 public class Booking {
 
 	@Id
@@ -17,7 +18,7 @@ public class Booking {
 	
 	private String street;
 	
-	private String postCode;
+	private String postcode;
 	
 	private String city;
 	
@@ -33,7 +34,19 @@ public class Booking {
 	
 	private String bookingTime;
 	
-	@OneToMany(mappedBy="booking")
+	private String bookingTimeFrom;
+	
+	private String product;
+	
+	private String type;
+	
+	private String staffName;
+	
+	@OneToMany(	
+			mappedBy = "booking",
+			cascade = {CascadeType.ALL}, 
+			fetch = FetchType.EAGER
+	)
 	private List<PieceData> piecesDatas;
 	
 	public Booking(String customerName, String houseNumber, String street, String city ) {
@@ -41,6 +54,38 @@ public class Booking {
 		this.houseNumber = houseNumber;
 		this.street = street;
 		this.city = city;
+	}
+	
+	public String getBookingTimeFrom() {
+		return bookingTimeFrom;
+	}
+
+	public void setBookingTimeFrom(String bookingTimeFrom) {
+		this.bookingTimeFrom = bookingTimeFrom;
+	}
+	
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
 	}
 	
 	public String getCustomerName() {
@@ -68,11 +113,11 @@ public class Booking {
 	}
 
 	public String getPostCode() {
-		return postCode;
+		return postcode;
 	}
 
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
+	public void setPostCode(String postcode) {
+		this.postcode = postcode;
 	}
 
 	public String getCity() {
@@ -137,6 +182,11 @@ public class Booking {
 
 	public void setPiecesDatas(List<PieceData> piecesDatas) {
 		this.piecesDatas = piecesDatas;
+	}
+	
+	@Override
+	public String toString() {
+		return "(" + this.getBookingTimeFrom() + this.getPostCode() + ")";
 	}
 	
 }

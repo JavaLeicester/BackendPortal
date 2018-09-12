@@ -15,7 +15,7 @@ import uk.co.bookingAndCollection.service.*;
 public class Bookings {
 	
 	 private final BookingsService bookingService;
-	 private final Logger logger = LoggerFactory.getLogger(Bookings.class);
+	 private static final Logger logger = LoggerFactory.getLogger(Bookings.class);
 	 
 	 @Autowired
 	 public Bookings(BookingsRepository bookingRepository, BookingsService customersService){
@@ -23,15 +23,16 @@ public class Bookings {
 	 }
 	 
 	 @PostMapping
-	 public @ResponseBody Booking add(@RequestBody Booking booking){
+	 public @ResponseBody Booking add(@RequestBody Booking booking) {
 		
 	   logger.debug("Get all bookings");
-		 
+
 	   return this.bookingService.addBooking(booking);
 	 }
 	 
 	 @GetMapping
 	 public @ResponseBody List<Booking> list(@RequestHeader String auth) {
+		 
 	   return this.bookingService.getAllBookings();
 	 }
 

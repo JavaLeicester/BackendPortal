@@ -19,8 +19,18 @@ public class PieceData implements Serializable{
 	private String width;
 	
 	private String height;
+
+	private String pieceType;
 	
 	private Integer booking_id;
+	
+	public String getPieceType() {
+		return pieceType;
+	}
+
+	public void setPieceType(String pieceType) {
+		this.pieceType = pieceType;
+	}
 	
 	public Integer getBooking_id() {
 		return this.booking_id;

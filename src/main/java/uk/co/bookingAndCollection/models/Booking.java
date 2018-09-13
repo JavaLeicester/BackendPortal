@@ -44,25 +44,6 @@ public class Booking implements Serializable {
 	
 	private String type;
 	
-	//private PieceData[] bookingAndCollectionModel;
-	
-	/*public void setPieceData(PieceData[] bookingAndCollectionModel) {
-		this.bookingAndCollectionModel = bookingAndCollectionModel;
-	}
-	
-	public PieceData[] getPieceData() {
-		return this.bookingAndCollectionModel;
-	}*/
-	
-	// private List<Wrapper> piecesData; 
-	/*
-	 * public void setPiecesData(List<Wrapper> piecesData) {
-		this.piecesData = piecesData;
-	}
-	public List<Wrapper> getPiecesData(){
-		return this.piecesData;
-	}*/
-	
 	private String staffName;
 	
 	@OneToMany(	
@@ -71,19 +52,28 @@ public class Booking implements Serializable {
 	)
 	@JoinColumn(name = "booking_id", referencedColumnName = "booking_id")
 	@JsonProperty(value = "piecesData")
-	private List<PieceData> apiecesDatas;
+	private List<PieceData> piecesDatas;
 	
 	public Booking() {
 		
 	}
 	
-	public Booking(String customerName, String houseNumber, String street, String city, List<PieceData> apiecesDatas) {
+	public Booking(String customerName, String houseNumber, String street, String city, List<PieceData> piecesDatas) {
 		this.customerName = customerName;
 		this.houseNumber = houseNumber;
 		this.street = street;
 		this.city = city;
-		this.apiecesDatas = apiecesDatas;
+		this.piecesDatas = piecesDatas;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	
 	public String getBookingTimeFrom() {
 		return bookingTimeFrom;
@@ -206,11 +196,11 @@ public class Booking implements Serializable {
 	}
 
 	public List<PieceData> getPiecesDatas() {
-		return apiecesDatas;
+		return piecesDatas;
 	}
 
 	public void setPiecesDatas(List<PieceData> bookingAndCollectionModel) {
-		this.apiecesDatas = bookingAndCollectionModel;
+		this.piecesDatas = bookingAndCollectionModel;
 	}
 	
 	@Override

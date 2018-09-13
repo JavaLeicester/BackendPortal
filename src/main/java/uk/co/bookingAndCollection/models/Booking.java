@@ -22,7 +22,7 @@ public class Booking implements Serializable {
 	
 	private String street;
 	
-	private String postcode;
+	private String postcodeValue;
 	
 	private String city;
 	
@@ -132,11 +132,11 @@ public class Booking implements Serializable {
 	}
 
 	public String getPostCode() {
-		return postcode;
+		return postcodeValue;
 	}
 
-	public void setPostCode(String postcode) {
-		this.postcode = postcode;
+	public void setPostCode(String postcodeValue) {
+		this.postcodeValue = postcodeValue;
 	}
 
 	public String getCity() {

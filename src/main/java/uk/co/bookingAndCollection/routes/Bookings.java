@@ -35,8 +35,6 @@ public class Bookings {
 	 
 	 @GetMapping
 	 public @ResponseBody List<Booking> list() {
-		 
-		 this.bookingService.getAllBookings();
 	  
 		 return this.bookingService.getAllBookings();
 		 

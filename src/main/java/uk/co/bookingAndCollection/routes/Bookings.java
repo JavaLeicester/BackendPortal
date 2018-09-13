@@ -34,9 +34,12 @@ public class Bookings {
 	 }
 	 
 	 @GetMapping
-	 public @ResponseBody List<Booking> list(@RequestHeader String auth) {
+	 public @ResponseBody List<Booking> list() {
 		 
-	   return this.bookingService.getAllBookings();
+		 this.bookingService.getAllBookings();
+	  
+		 return this.bookingService.getAllBookings();
+		 
 	 }
 
 }

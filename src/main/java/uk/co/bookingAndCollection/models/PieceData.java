@@ -1,26 +1,44 @@
 package uk.co.bookingAndCollection.models;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="pieceData")
-public class PieceData {
+public class PieceData implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
+	private String weight;
+	
 	private String length;
 	
 	private String width;
 	
-	private String height;
+	private Integer height;
 	
-	private String weight;
+	private Integer booking_id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "booking_id")
-	private Booking booking;
+	public Integer getBooking_id() {
+		return this.booking_id;
+	}
+	
+	public void setBooking_id(Integer booking_id) {
+		this.booking_id = booking_id;
+	}
+	
+	public PieceData() {
+	}
+	
+	public PieceData(Integer height, String length, String width, String weight) {
+		this.length = length;
+		this.width = width;
+		this.weight = weight;
+		this.height = height;
+	}
 	
 	// Weight
 	public String getWeight() {
@@ -50,17 +68,13 @@ public class PieceData {
 	}
 
 	// Height
-	public String getHeight() {
+	public Integer getHeight() {
 		return height;
 	}
 
-	public void setHeight(String height) {
+	public void setHeight(Integer height) {
 		this.height = height;
 	}
 	
-	public Booking getBooking() {
-		return booking;
-		
-	}
 	
 }

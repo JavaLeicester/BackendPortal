@@ -5,9 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import uk.co.bookingAndCollection.models.PieceData;
-import uk.co.bookingAndCollection.models.Wrapper;
 
 @Entity
 @Table(name="booking")

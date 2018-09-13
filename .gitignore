@@ -2,6 +2,10 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 /bin
+concretepage/*
+concretepage
+/concretepage/
+concretepage/
 
 ### STS ###
 .apt_generated

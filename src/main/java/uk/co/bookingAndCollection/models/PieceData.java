@@ -18,7 +18,7 @@ public class PieceData implements Serializable{
 	
 	private String width;
 	
-	private Integer height;
+	private String height;
 	
 	private Integer booking_id;
 	
@@ -33,7 +33,7 @@ public class PieceData implements Serializable{
 	public PieceData() {
 	}
 	
-	public PieceData(Integer height, String length, String width, String weight) {
+	public PieceData(String height, String length, String width, String weight) {
 		this.length = length;
 		this.width = width;
 		this.weight = weight;
@@ -68,11 +68,11 @@ public class PieceData implements Serializable{
 	}
 
 	// Height
-	public Integer getHeight() {
+	public String getHeight() {
 		return height;
 	}
 
-	public void setHeight(Integer height) {
+	public void setHeight(String height) {
 		this.height = height;
 	}
 	

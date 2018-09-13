@@ -2,14 +2,20 @@ package uk.co.bookingAndCollection.models;
 
 import java.util.List;
 import javax.persistence.*;
-import uk.co.bookingAndCollection.models.PieceData;;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import uk.co.bookingAndCollection.models.PieceData;
+import uk.co.bookingAndCollection.models.Wrapper;
 
 @Entity
 @Table(name="booking")
-public class Booking {
+public class Booking implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="booking_id")
 	private Integer id;
 	
 	private String customerName;
@@ -40,20 +46,45 @@ public class Booking {
 	
 	private String type;
 	
+	//private PieceData[] bookingAndCollectionModel;
+	
+	/*public void setPieceData(PieceData[] bookingAndCollectionModel) {
+		this.bookingAndCollectionModel = bookingAndCollectionModel;
+	}
+	
+	public PieceData[] getPieceData() {
+		return this.bookingAndCollectionModel;
+	}*/
+	
+	// private List<Wrapper> piecesData; 
+	/*
+	 * public void setPiecesData(List<Wrapper> piecesData) {
+		this.piecesData = piecesData;
+	}
+	public List<Wrapper> getPiecesData(){
+		return this.piecesData;
+	}*/
+	
 	private String staffName;
 	
 	@OneToMany(	
-			mappedBy = "booking",
 			cascade = {CascadeType.ALL}, 
 			fetch = FetchType.EAGER
 	)
-	private List<PieceData> piecesDatas;
+	@JoinColumn(name = "booking_id", referencedColumnName = "booking_id")
+	@JsonProperty(value = "piecesData")
+	private List<PieceData> apiecesDatas;
 	
-	public Booking(String customerName, String houseNumber, String street, String city ) {
+	public Booking() {
+		
+	}
+	
+	public Booking(String customerName, String houseNumber, String street, String city, List<PieceData> apiecesDatas) {
 		this.customerName = customerName;
 		this.houseNumber = houseNumber;
 		this.street = street;
 		this.city = city;
+		this.apiecesDatas = apiecesDatas;
 	}
 	
 	public String getBookingTimeFrom() {
@@ -177,11 +208,11 @@ public class Booking {
 	}
 
 	public List<PieceData> getPiecesDatas() {
-		return piecesDatas;
+		return apiecesDatas;
 	}
 
-	public void setPiecesDatas(List<PieceData> piecesDatas) {
-		this.piecesDatas = piecesDatas;
+	public void setPiecesDatas(List<PieceData> bookingAndCollectionModel) {
+		this.apiecesDatas = bookingAndCollectionModel;
 	}
 	
 	@Override

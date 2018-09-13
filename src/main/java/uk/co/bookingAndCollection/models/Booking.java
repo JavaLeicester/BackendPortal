@@ -36,7 +36,7 @@ public class Booking implements Serializable {
 	
 	private String bookingDate;
 	
-	private String bookingTime;
+	private String bookingTimeTo;
 	
 	private String bookingTimeFrom;
 	
@@ -188,11 +188,11 @@ public class Booking implements Serializable {
 	}
 
 	public String getBookingTime() {
-		return bookingTime;
+		return bookingTimeTo;
 	}
 
-	public void setBookingTime(String bookingTime) {
-		this.bookingTime = bookingTime;
+	public void setBookingTime(String bookingTimeTo) {
+		this.bookingTimeTo = bookingTimeTo;
 	}
 
 	public List<PieceData> getPiecesDatas() {

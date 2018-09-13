@@ -8,10 +8,5 @@ import org.springframework.data.repository.CrudRepository;
 @Repository
 public interface BookingsRepository extends CrudRepository<Booking, Integer> {
 	
-	
-	@Query(
-		value = "INSERT INTO "	
-	)
-	void InsertBookingAndPieceType();
 
 }

@@ -24,6 +24,10 @@ public class PieceData implements Serializable{
 	
 	private Integer booking_id;
 	
+	public String volumeWeight;
+	
+	public String chargeableWeight;
+	
 	public String getPieceType() {
 		return pieceType;
 	}
@@ -85,6 +89,23 @@ public class PieceData implements Serializable{
 	public void setHeight(String height) {
 		this.height = height;
 	}
+
+	// Volume Weight
+	public void setVolumeWeight(String volumeWeight) {
+		this.volumeWeight = volumeWeight;
+	}
 	
+	public String getVolumeWeight() {
+		return this.volumeWeight;
+	}
+	
+	// ChargeableWeight
+	public void setChargeableWeight(String chargeableWeight) {
+		this.chargeableWeight = chargeableWeight;
+	}
+	
+	public String getChargeableWeight() {
+		return this.chargeableWeight;
+	}
 	
 }

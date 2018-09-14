@@ -89,15 +89,20 @@ public class BookingsService {
 				currentPiece.setChargeableWeight(currentPiece.getVolumeWeight());
 			}
 			
-			// R2DP	
-			
+			// R2DP	- Chargeable Weight	
 			Double CW = Double.parseDouble( currentPiece.getChargeableWeight() );
 			
 			String CWDTWODP = df2.format(CW);
 			
 			currentPiece.setChargeableWeight( CWDTWODP );
 			
-			//currentPiece.setChargeableWeight("1");
+
+			// R2DP - Volume Weight
+			Double VW = Double.parseDouble(currentPiece.getVolumeWeight() );
+			
+			String VWTWODP = df2.format(VW);
+			
+			currentPiece.setVolumeWeight(VWTWODP);
 			
 			result.add(currentPiece);
 			

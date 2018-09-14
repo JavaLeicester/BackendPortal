@@ -1,16 +1,14 @@
 package uk.co.bookingAndCollection.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import org.springframework.stereotype.Service;
 import uk.co.bookingAndCollection.models.Booking;
 import uk.co.bookingAndCollection.models.PieceData;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.co.bookingAndCollection.repository.BookingsRepository;
-
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 @Service
 public class BookingsService {

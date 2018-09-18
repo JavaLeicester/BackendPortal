@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - run:
+      # run tests!
+      - run: gradle test 
+      - run: gradle build
+      - store_artifacts: 
+          path: build/reports/    
+  

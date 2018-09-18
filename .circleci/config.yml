@@ -6,7 +6,6 @@ jobs:
     steps:
       - checkout
       # Download and cache dependencies
-      - run:
       # run tests!
       - run: gradle test 
       - run: gradle build

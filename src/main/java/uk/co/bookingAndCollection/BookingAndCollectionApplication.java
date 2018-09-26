@@ -2,11 +2,19 @@ package uk.co.bookingAndCollection;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class BookingAndCollectionApplication {
+public class BookingAndCollectionApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookingAndCollectionApplication.class, args);
 	}
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(BookingAndCollectionApplication.class);
+	}
+	
 }

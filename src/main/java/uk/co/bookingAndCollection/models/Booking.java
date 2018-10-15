@@ -18,6 +18,8 @@ public class Booking implements Serializable {
 	
 	private String customerName;
 	
+	private String mobile;
+	
 	private String houseNumber;
 	
 	private String street;
@@ -46,6 +48,70 @@ public class Booking implements Serializable {
 	
 	private String staffName;
 	
+	//Receiver details
+	private String receiverName;
+	
+	private String receiverContactNumber;
+	
+	private String receiverHouseNumber;
+	
+	private String receiverStreet;
+	
+	private String receiverPostCode;
+	
+	private String receiverCity;
+	// end Receiver details
+	
+	
+	
+	public String getReceiverName() {
+		return receiverName;
+	}
+
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+
+	public String getReceiverContactNumber() {
+		return receiverContactNumber;
+	}
+
+	public void setReceiverContactNumber(String receiverContactNumber) {
+		this.receiverContactNumber = receiverContactNumber;
+	}
+
+	public String getReceiverHouseNumber() {
+		return receiverHouseNumber;
+	}
+
+	public void setReceiverHouseNumber(String receiverHouseNumber) {
+		this.receiverHouseNumber = receiverHouseNumber;
+	}
+
+	public String getReceiverStreet() {
+		return receiverStreet;
+	}
+
+	public void setReceiverStreet(String receiverStreet) {
+		this.receiverStreet = receiverStreet;
+	}
+
+	public String getReceiverPostCode() {
+		return receiverPostCode;
+	}
+
+	public void setReceiverPostCode(String receiverPostCode) {
+		this.receiverPostCode = receiverPostCode;
+	}
+
+	public String getReceiverCity() {
+		return receiverCity;
+	}
+
+	public void setReceiverCity(String receiverCity) {
+		this.receiverCity = receiverCity;
+	}
+	
 	@OneToMany(	
 			cascade = {CascadeType.ALL}, 
 			fetch = FetchType.EAGER
@@ -73,7 +139,14 @@ public class Booking implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public String getMobile() {
+		return mobile;
+	}
 
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	
 	public String getBookingTimeFrom() {
 		return bookingTimeFrom;

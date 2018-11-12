@@ -1,5 +1,6 @@
 package uk.co.bookingAndCollection.routes;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,10 @@ public class Bookings {
 	 @GetMapping
 	 public @ResponseBody List<Booking> list() {
 	  
-		 return this.bookingService.getAllBookings();
+		// return this.bookingService.getAllBookings();
+		 List<Booking> temp = new ArrayList<Booking>();
+		 
+		 return temp;
 		 
 	 }
 

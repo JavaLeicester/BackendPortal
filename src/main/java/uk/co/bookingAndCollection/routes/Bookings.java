@@ -1,13 +1,14 @@
 package uk.co.bookingAndCollection.routes;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import uk.co.bookingAndCollection.models.*;
-import uk.co.bookingAndCollection.repository.BookingsRepository;
 import uk.co.bookingAndCollection.service.*;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import uk.co.bookingAndCollection.repository.BookingsRepository;
+
 
 @CrossOrigin(origins = "*")
 @RestController

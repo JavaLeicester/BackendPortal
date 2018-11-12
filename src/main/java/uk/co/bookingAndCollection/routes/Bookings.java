@@ -38,10 +38,10 @@ public class Bookings {
 	 @GetMapping
 	 public @ResponseBody List<Booking> list() {
 	  
-		// return this.bookingService.getAllBookings();
-		 List<Booking> temp = new ArrayList<Booking>();
+		 return this.bookingService.getAllBookings();
+		 //List<Booking> temp = new ArrayList<Booking>();
 		 
-		 return temp;
+		// return temp;
 		 
 	 }
 

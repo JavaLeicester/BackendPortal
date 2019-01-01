@@ -23,11 +23,11 @@ jobs:
            steps:
              - add_ssh_keys:
                  fingerprints:
-                    - d0:aa:74:f9:60:dc:82:fb:e7:f4:2f:ef:30:f8:ff:f7
+                   - d0:aa:74:f9:60:dc:82:fb:e7:f4:2f:ef:30:f8:ff:f7
              - run:
                 name: Deploy Over SSH
                 command: |
-                  ssh -v root@46.101.34.160 "/var/local/deployScripts/./deployBe.sh"
+                 ssh -v root@46.101.34.160 "/var/local/deployScripts/./deployBe.sh"
 # 3
 workflows:
   version: 2

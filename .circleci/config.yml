@@ -17,20 +17,36 @@ jobs:
       TERM: dumb
     steps:
       - checkout
-    deploy:
-           machine:
-             enabled: true
-           steps:
-             - add_ssh_keys:
-                 fingerprints:
-                   - d0:aa:74:f9:60:dc:82:fb:e7:f4:2f:ef:30:f8:ff:f7
-             - run:
-                name: Deploy Over SSH
-                command: |
-                 ssh -v root@46.101.34.160 "/var/local/deployScripts/./deployBe.sh"
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "build.gradle" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run: gradle dependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+      # run tests!
+      - run: gradle test
+      - run: gradle check
+      - store_artifacts:
+          path: build/reports/
+  deploy:
+       machine:
+         enabled: true
+       steps:
+         - add_ssh_keys:
+             fingerprints:
+               - d0:aa:74:f9:60:dc:82:fb:e7:f4:2f:ef:30:f8:ff:f7
+         - run:
+            name: Deploy Over SSH
+            command: |
+             ssh -v root@46.101.34.160 "/var/local/deployScripts/./deployBe.sh"
 # 3
-#workflows:
-#  version: 2
+workflows:
+  version: 2
   build-and-deploy:
     jobs:
       - build

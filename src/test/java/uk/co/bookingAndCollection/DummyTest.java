@@ -8,18 +8,15 @@ public class DummyTest {
 	
 	@Test
 	public void isStringEmpty() {
-		
-		String stringToTest="ad";
-		
+		String stringToTest="";
 		assertThat(stringToTest, Matchers.isEmptyString());
 		
 	}
 	
 	@Test 
 	public void isStringEmptyOfNull() {
-		String stringToTest = "a";
+		String stringToTest = "";
 		assertThat(stringToTest, Matchers.isEmptyOrNullString());
-		
 	}
 	
 }

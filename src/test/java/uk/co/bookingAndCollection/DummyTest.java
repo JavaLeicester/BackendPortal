@@ -19,7 +19,7 @@ public class DummyTest {
 	public void isStringEmptyOfNull() {
 		String stringToTest = "";
 		assertThat(stringToTest, Matchers.isEmptyOrNullString());
-		
+		//
 	}
 	
 }

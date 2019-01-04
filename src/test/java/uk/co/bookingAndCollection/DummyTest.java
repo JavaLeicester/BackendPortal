@@ -17,9 +17,9 @@ public class DummyTest {
 	
 	@Test 
 	public void isStringEmptyOfNull() {
-		String stringToTest = "";
+		String stringToTest = "a";
 		assertThat(stringToTest, Matchers.isEmptyOrNullString());
-		//
+		
 	}
 	
 }
